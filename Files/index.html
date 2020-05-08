@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Launcher</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <div style="text-align:center;">
+                <input type="button" value="Run test.bat file" id="bat" onclick = "func1()"/>
+                <input type="button" value="Run notepad.exe" id="exe" onclick = "func2()"/>
+                <label for="box">Data:</label>
+                <input type="text" id="box" name="box"><br><br>
+                <input type="button" value="Write text" id="box_btn" onclick = "func3()"/>
+            </div>
+
+
+        </div>
+
+        <script>
+
+            //run a batch file
+            //see https://nodejs.org/api/child_process.html#child_process_spawning_bat_and_cmd_files_on_windows
+            function func1(){
+              document.getElementById("bat").style.color = "red";
+
+              const { exec, spawn } = require('child_process');
+              exec('test.bat', (err, stdout, stderr) => {
+                if (err) {
+                  console.error(err);
+                  return;
+                }
+                console.log(stdout);
+                });
+            }
+
+            //run and exe
+            function func2(){
+              document.getElementById("exe").style.color = "blue";
+
+              const { exec, spawn } = require('child_process');
+              exec('notepad.exe', (err, stdout, stderr) => {
+                if (err) {
+                  console.error(err);
+                  return;
+                }
+                console.log(stdout);
+                });
+            }
+
+            // read / write  file
+            // see https://nodejs.org/api/fs.html
+            function func3(){
+              let data = document.getElementById("box").value;
+              console.log(data)
+
+              let fs = require('fs')
+              let filename = 'data.txt'
+
+              let content = fs.readFileSync(filename, 'utf8', (err) => {console.log("read err")});
+              content = content + data
+              fs.writeFileSync(filename, content, (err) => {console.log("write err")});
+
+            }
+
+        </script>
+    </body>
+</html>
