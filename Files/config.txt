@@ -1,0 +1,6 @@
+#heres a commented line followed by a blank line
+
+#window_size_x: "3440"
+window_size_y: "1440" # and another comment
+
+enable_dev_options: "False"
