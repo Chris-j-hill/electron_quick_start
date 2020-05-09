@@ -1,6 +1,42 @@
-#heres a commented line followed by a blank line
+# see https://www.electronjs.org/docs/api/browser-window
+#____window size and position paramters____
 
-#window_size_x: "3440"
-window_size_y: "1440" # and another comment
+window_size_x: "2000"
+window_size_y: "1000"
+
+window_position_x: "100" # from top left
+window_position_y: "300"
+#window_centerd: "True"
+
+window_resizable: "true"
+window_min_height: "0"
+window_min_width: "0"
+#window_max_height: "1080"
+#window_max_width: "1920"
+
+window_moveable: "True"
+window_minimizable: "True"
+window_maximizable: "True"
+window_closable: "True"
+window_focusable: "True"
+
+
+
+###################################
+
+#____window aesthetics____
+
+window_title: "WindowTitle"
+window_icon: "Path_to_icon"
+window_backgroundColor: "#FFF"
+window_opacity: "0.7"
+
+###################################
+
+#____window misc tools____
+
 
 enable_dev_options: "False"
+window_hide_menu: "True"
+window_frame: "True"
+window_hide_taskbar: "True"

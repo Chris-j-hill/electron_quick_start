@@ -1,0 +1,2 @@
+copy ..\Files\*
+npm start
